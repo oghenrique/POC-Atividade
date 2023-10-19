@@ -1,0 +1,55 @@
+Empresas:
+Armazenamos informações sobre as empresas que têm parcerias com nossa instituição.
+Incluímos o nome das empresas, seus respectivos CNPJs, o tipo de parceria estabelecida e a duração dessa parceria.
+
+
+Cursos:
+Mantemos um registro das informações relativas aos cursos oferecidos.
+Isso abrange os nomes dos cursos, o tipo de formação que oferecem e a carga horária associada a cada curso.
+
+
+Disciplinas:
+Contamos com informações sobre as disciplinas disponibilizadas aos alunos.
+As informações incluem os nomes das disciplinas e suas respectivas cargas horárias.
+
+
+Professores:
+Mantemos informações detalhadas sobre nossos docentes.
+Isso engloba seus nomes, CPFs, números de telefone, datas de nascimento, datas de contratação, endereços e endereços de e-mail.
+
+
+Instituição:
+Nossos registros também incluem informações sobre a nossa instituição de ensino.
+Essas informações compreendem o nome da instituição, a filial a que pertence, seu CNPJ e as chaves estrangeiras necessárias para associar a instituição às empresas e aos cursos.
+
+
+Alunos:
+Outra categoria de informações que mantemos diz respeito aos nossos alunos.
+Os dados armazenados incluem os nomes dos alunos, seus CPFs, números de telefone, datas de nascimento, endereços e endereços de e-mail.
+
+
+Turmas:
+Temos registros das turmas oferecidas pela instituição.
+Esses registros contêm informações sobre o ano escolar das turmas, juntamente com as chaves estrangeiras que estabelecem conexões com as disciplinas, professores e cursos correspondentes.
+
+Matrículas:
+Para acompanhar as matrículas dos alunos em cursos, registramos informações sobre as matrículas, incluindo a data da matrícula e as chaves estrangeiras que conectam as matrículas aos alunos e aos cursos.
+
+
+Notas:
+Outro conjunto de informações que mantemos diz respeito às notas dos alunos nas disciplinas.
+Estas informações incluem as notas obtidas, a data das avaliações e as chaves estrangeiras que associam as notas aos alunos e às disciplinas correspondentes.
+
+Eventos Acadêmicos:
+Registramos informações sobre eventos acadêmicos realizados.
+Os detalhes incluem o nome do evento, sua data, descrição e uma chave estrangeira que o relaciona com nossa instituição.
+
+
+Frequência:
+Rastreamos informações relacionadas à frequência dos alunos nas turmas.
+Isso envolve o registro da data das aulas e da presença dos alunos, conectados às respectivas turmas e aos alunos por meio de chaves estrangeiras.
+
+
+Atividades Extras:
+Armazenamos informações sobre atividades extras oferecidas.
+Isso inclui seus nomes e tipos, com uma chave estrangeira para associar cada atividade a uma turma.
