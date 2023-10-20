@@ -114,94 +114,93 @@ create table atividades_extras (
     foreign key (id_turma) references turmas(id)
 );
 
-insert into empresas (nome, cnpj, tipo_parceria, duracao_parceria) 
+insert into empresas (id, nome, cnpj, tipo_parceria, duracao_parceria) 
 values
-("Senai", 76095658000196, "Estágios", 2),
-("YouTube", 09622667000109, "Projetos", 4),
-("Google", 22044876000172, "Estágios", 8),
-("Fiap", 61554609000105, "Projetos", 3);
+(1, "Senai", 76095658000196, "Estágios", 2),
+(2, "YouTube", 09622667000109, "Projetos", 4),
+(3, "Google", 22044876000172, "Estágios", 8),
+(4, "Fiap", 61554609000105, "Projetos", 3);
 
-insert into cursos (nome, tipo_formacao, carga_horaria)
+insert into cursos (id, nome, tipo_formacao, carga_horaria)
 values
-("Desenvolvimento Web", "FIC", 72),
-("Python", "FIC", 144),
-("Redes", "Ensino Médio Tecnico", 1382);
+(111, "Desenvolvimento Web", "FIC", 72),
+(222, "Python", "FIC", 144),
+(333, "Redes", "Ensino Médio Tecnico", 1382);
 
-insert into disciplinas (nome, carga_horaria)
+insert into disciplinas (id, nome, carga_horaria)
 values
-("HTML e CSS", 33),
-("JavaScript", 33),
-("MongoDB", 6);
-("Fundamentos de Redes", 87),
-("Cabeamento", 24),
-("Cloud", 72);
+(10, "HTML e CSS", 33),
+(11, "JavaScript", 33),
+(12, "MongoDB", 6),
+(13, "Fundamentos de Redes", 87),
+(14, "Cabeamento", 24),
+(15, "Cloud", 72);
 
-INSERT INTO professores (nome,cpf,telefone,data_nascimento,data_contratacao,endereco,email)
+INSERT INTO professores (id, nome,cpf,telefone,data_nascimento,data_contratacao,endereco,email)
 VALUES
-("Tanisha Harrell","129442227800","(882) 247-1794","Jan 1, 2020","Jun 30, 2024","Ap #776-4126 Dolor St.","tanishaharrell@gmail.com"),
-("Dante Guerra","008651524679","(474) 574-8063","Sep 14, 2019","Dec 26, 2023","192 Dis Ave","danteguerra@gmail.com"),
-("Yvette Gibson","407218467402","(942) 557-9560","Jan 8, 2023","Aug 4, 2023","660-8184 Quis, Ave","yvettegibson@gmail.com"),
-("Joelle Salinas","645075378740","(551) 856-4453","Oct 13, 2023","May 3, 2024","495 Mattis. Road","joellesalinas1901@gmail.com"),
-("Cynthia Carson","352151036886","(496) 464-7684","Jan 10, 2024","Nov 24, 2022","Ap #554-3308 Vestibulum Street","cynthiacarson8755@gmail.com");
+(100, "Tanisha Harrell","129442227800", 11988099363, "1994-1-1" ,"2020-06-30","Ap #776-4126 Dolor St.","tanishaharrell@gmail.com"),
+(200, "Dante Guerra","008651524679",1194631536,"1978-09-14","2023-12-26","192 Dis Ave","danteguerra@gmail.com"),
+(300, "Yvette Gibson","407218467402", 11963674418,"1967-1-8","2023-8-4","660-8184 Quis, Ave","yvettegibson@gmail.com"),
+(400, "Joelle Salinas","645075378740", 11991380230, "1989-10-13", "2024-5-3","495 Mattis. Road","joellesalinas1901@gmail.com"),
+(500, "Cynthia Carson","352151036886", 11987654567,"1999-1-10","2022-11-24","Ap #554-3308 Vestibulum Street","cynthiacarson8755@gmail.com");
 
-insert into intituicao (nome, filial, cnpj, id_empresas, id_cursos)
+insert into instituicao (id, nome, filial, cnpj, id_empresas, id_cursos)
 values
-("Senai SP", "Jandira", 76095658000198, 1),
-("Senai SP", "Jandira", 76095658000198, 1),
-("Senai SP", "Jandira", 76095658000198, 3),
-("Senai SP", "Jandira", 76095658000198, 1);
+(20, 'Senai SP', 'Jandira', 76095658000198, 1, 111);
 
-INSERT INTO alunos (nome,cpf,telefone,data_nascimento,endereco,email)
+INSERT INTO alunos (id, nome, cpf, telefone, data_nascimento, endereco, email)
 VALUES
-("Jackson Luna","155645198335","(569) 476-8670","Feb 26, 2024","Ap #513-9001 Sem Rd.","jacksonluna9185@gmail.com"),
-("May Barker","366946617872","(123) 574-2512","Jan 27, 2024","Ap #297-9276 Nunc Avenue","maybarker4949@gmail.com"),
-("Eleanor Harrison","536554914771","(836) 273-1426","Sep 27, 2018","3361 Sed Av.","eleanorharrison6928@gmail.com"),
-("Quon Hardy","653652872821","(245) 599-8199","Dec 12, 2022","Ap #523-6817 A Rd.","quonhardy@gmail.com"),
-("Molly Good","679688721389","(435) 553-8441","May 7, 2020","9635 Quis St.","mollygood9938@gmail.com");
+(123, "Jackson Luna","155645198335", 11945631536 ,"2004-2-26","Ap #513-9001 Sem Rd.","jacksonluna9185@gmail.com"),
+(321, "May Barker","366946617872", 11988099363,"2006-12-12","Ap #297-9276 Nunc Avenue","maybarker4949@gmail.com"),
+(456, "Eleanor Harrison","536554914771", 11963674418 ,"2005-12-09","3361 Sed Av.","eleanorharrison6928@gmail.com"),
+(654, "Quon Hardy","653652872821", 11291694731,"2007-10-17","Ap #523-6817 A Rd.","quonhardy@gmail.com"),
+(789, "Molly Good","679688721389", 11991380230,"2006-1-31","9635 Quis St.","mollygood9938@gmail.com");
 
-insert into turmas (ano_escolar, id_disciplina, id_professor, id_curso)
+insert into turmas (id, ano_escolar, id_disciplina, id_professor, id_curso)
 values
-(2023, 2, 2, 1),
-(2024, 2, 2, 1),
-(2023, 4, 1, 3),
-(2024, 6, 4, 2);
+(90, 2023, 10, 100, 111),
+(91, 2024, 12, 500, 222),
+(92, 2023, 14, 300, 333),
+(93, 2024, 11, 400, 111);
 
-INSERT INTO matriculas (id_aluno, id_curso, data_matricula) 
+INSERT INTO matriculas (id, id_aluno, id_curso, data_matricula) 
 VALUES 
-(1, 1, '2023-01-15'),
-(2, 2, '2023-02-20'),
-(3, 3, '2023-03-25'),
-(4, 1, '2023-04-10'),
-(5, 3, '2023-05-05');
+(1000, 123, 111, '2023-01-15'),
+(1001, 321, 222, '2023-02-20'),
+(1002, 456, 333, '2023-03-25'),
+(1003, 654, 111, '2023-04-10'),
+(1004, 789, 333, '2023-05-05');
 
-INSERT INTO notas (id_aluno, id_disciplina, nota, data_avaliacao)
+INSERT INTO notas (id, id_aluno, id_disciplina, nota, data_avaliacao)
 VALUES 
-(1, 1, 90, '2023-01-10'),
-(2, 2, 85, '2023-02-15'),
-(3, 3, 75, '2023-03-20'),
-(4, 1, 92, '2023-04-05'),
-(5, 3, 88, '2023-05-12');
+(80, 123, 10, 111, '2023-01-10'),
+(81, 321, 13, 222, '2023-02-15'),
+(82, 456, 10, 111, '2023-03-20'),
+(83, 654, 12, 222, '2023-04-05'),
+(84, 789, 14, 333, '2023-05-12');
 
-INSERT INTO eventos_academicos (nome, data_evento, descricao) 
+INSERT INTO eventos_academicos (id, nome, data_evento, descricao) 
 VALUES 
-('Semana de Ciências', '2023-03-01', 'Palestras e workshops'),
-('Feira de Carreiras', '2023-04-10', 'Oportunidades de emprego'),
-('Conferência de Tecnologia', '2023-05-15', 'Últimas tendências tecnológicas'),
-('Seminário de Literatura', '2023-06-20', "Apresentações dos TCC's do Senai SP"),
-('Dia da Ciência', '2023-07-05', 'Apresentações de projetos de pesquisa');
+(999, 'Semana de Ciências', '2023-03-01', 'Palestras e workshops'),
+(888, 'Feira de Carreiras', '2023-04-10', 'Oportunidades de emprego'),
+(777, 'Conferência de Tecnologia', '2023-05-15', 'Últimas tendências tecnológicas'),
+(666, 'Seminário de Literatura', '2023-06-20', "Apresentações dos TCC's do Senai SP"),
+(555, 'Dia da Ciência', '2023-07-05', 'Apresentações de projetos de pesquisa');
 
-INSERT INTO frequencia (id_aluno, id_turma, data_aula, presenca) 
+INSERT INTO frequencia (id, id_aluno, id_turma, data_aula, presenca) 
 VALUES 
-(1, 1, '2023-01-03', 'Presente'),
-(2, 2, '2023-02-08', 'Faltou'),
-(3, 3, '2023-03-13', 'Presente'),
-(4, 1, '2023-04-19', 'Presente'),
-(5, 3, '2023-05-24', 'Faltou');
+(1212, 123, 90, '2023-01-03', 'Presente'),
+(1313, 321, 91, '2023-02-08', 'Faltou'),
+(1414, 456, 92, '2023-03-13', 'Presente'),
+(1515, 654, 93, '2023-04-19', 'Presente'),
+(1616, 789, 91, '2023-05-24', 'Faltou');
 
 INSERT INTO atividades_extras (id, nome, tipo_atividade, id_turma) 
 VALUES 
-('Clube de Leitura', 'Cultural', 1);
-('Clube de Programação', 'Técnica', 2);
-('Clube de Música', 'Cultural', 3);
-('Clube de Esportes', 'Esportiva', 4);
-('Voluntariado Social', 1);
+(9999, 'Clube de Leitura', 'Cultural', 90),
+(8888, 'Clube de Programação', 'Técnica', 93),
+(7777, 'Clube de Música', 'Cultural', 91),
+(6666, 'Clube de Esportes', 'Esportiva', 92),
+(5555, 'Clube dos Games', 'Voluntariado Social', 90);
+
+
