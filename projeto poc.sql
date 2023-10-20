@@ -165,3 +165,43 @@ values
 (2024, 2, 2, 1),
 (2023, 4, 1, 3),
 (2024, 6, 4, 2);
+
+INSERT INTO matriculas (id_aluno, id_curso, data_matricula) 
+VALUES 
+(1, 1, '2023-01-15'),
+(2, 2, '2023-02-20'),
+(3, 3, '2023-03-25'),
+(4, 1, '2023-04-10'),
+(5, 3, '2023-05-05');
+
+INSERT INTO notas (id_aluno, id_disciplina, nota, data_avaliacao)
+VALUES 
+(1, 1, 90, '2023-01-10'),
+(2, 2, 85, '2023-02-15'),
+(3, 3, 75, '2023-03-20'),
+(4, 1, 92, '2023-04-05'),
+(5, 3, 88, '2023-05-12');
+
+INSERT INTO eventos_academicos (nome, data_evento, descricao) 
+VALUES 
+('Semana de Ciências', '2023-03-01', 'Palestras e workshops'),
+('Feira de Carreiras', '2023-04-10', 'Oportunidades de emprego'),
+('Conferência de Tecnologia', '2023-05-15', 'Últimas tendências tecnológicas'),
+('Seminário de Literatura', '2023-06-20', "Apresentações dos TCC's do Senai SP"),
+('Dia da Ciência', '2023-07-05', 'Apresentações de projetos de pesquisa');
+
+INSERT INTO frequencia (id_aluno, id_turma, data_aula, presenca) 
+VALUES 
+(1, 1, '2023-01-03', 'Presente'),
+(2, 2, '2023-02-08', 'Faltou'),
+(3, 3, '2023-03-13', 'Presente'),
+(4, 1, '2023-04-19', 'Presente'),
+(5, 3, '2023-05-24', 'Faltou');
+
+INSERT INTO atividades_extras (id, nome, tipo_atividade, id_turma) 
+VALUES 
+('Clube de Leitura', 'Cultural', 1);
+('Clube de Programação', 'Técnica', 2);
+('Clube de Música', 'Cultural', 3);
+('Clube de Esportes', 'Esportiva', 4);
+('Voluntariado Social', 1);
