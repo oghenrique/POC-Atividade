@@ -14,14 +14,18 @@ create table cursos (
     id int primary key not null,
     nome varchar(60) not null,
     tipo_formacao varchar(40) not null,
-    carga_horaria int not null
+    carga_horaria int not null  
 );
 
 create table disciplinas (
     id int primary key not null,
     nome varchar(60) not null,
-    carga_horaria int not null
+    carga_horaria int not null,
+    id_curso int,
+    
+    foreign key (id_curso) references cursos(id)
 );
+
 
 create table professores (
     id int primary key not null,
@@ -31,7 +35,11 @@ create table professores (
     data_nascimento date not null,
     data_contratacao date not null,
     endereco varchar(60),
-    email varchar(60)
+    email varchar(60),
+    id_disciplina int,
+    
+    foreign key (id_disciplina) references disciplinas(id)
+    
 );
 
 create table instituicao (
@@ -45,6 +53,16 @@ create table instituicao (
     foreign key (id_cursos) references cursos(id)
 );
 
+create table turmas (
+    id int primary key not null,
+    ano_escolar int not null,
+    id_disciplina int,
+    id_professor int,
+    id_curso int,
+    foreign key (id_professor) references professores(id),
+    foreign key (id_curso) references cursos(id)
+);
+
 create table alunos (
     id int primary key not null,
     nome varchar(60) not null,
@@ -52,18 +70,10 @@ create table alunos (
     telefone bigint(15),
     data_nascimento date not null,
     endereco varchar(60),
-    email varchar(60)
-);
-
-create table turmas (
-    id int primary key not null,
-    ano_escolar int not null,
-    id_disciplina int,
-    id_professor int,
-    id_curso int,
-    foreign key (id_disciplina) references disciplinas(id),
-    foreign key (id_professor) references professores(id),
-    foreign key (id_curso) references cursos(id)
+    email varchar(60),
+    id_turma int, 
+    
+    foreign key (id_turma) references turmas(id)
 );
 
 create table matriculas (
@@ -99,8 +109,7 @@ create table frequencia (
     id_turma int,
     data_aula date not null,
     presenca varchar(15),
-    foreign key (id_aluno) references alunos(id),
-    foreign key (id_turma) references turmas(id)
+    foreign key (id_aluno) references alunos(id)
 );
 
 create table atividades_extras (
@@ -125,22 +134,22 @@ values
 (222, "Python", "FIC", 144),
 (333, "Redes", "Ensino Médio Tecnico", 1382);
 
-insert into disciplinas (id, nome, carga_horaria)
+insert into disciplinas (id, nome, carga_horaria, id_curso)
 values
-(10, "HTML e CSS", 33),
-(11, "JavaScript", 33),
-(12, "MongoDB", 6),
-(13, "Fundamentos de Redes", 87),
-(14, "Cabeamento", 24),
-(15, "Cloud", 72);
+(10, "HTML e CSS", 33, 111),
+(11, "JavaScript", 33, 111),
+(12, "MongoDB", 6, 222),
+(13, "Fundamentos de Redes", 87, 333),
+(14, "Cabeamento", 24, 333),
+(15, "Cloud", 72, 111);
 
-INSERT INTO professores (id, nome,cpf,telefone,data_nascimento,data_contratacao,endereco,email)
+INSERT INTO professores (id, nome,cpf,telefone,data_nascimento,data_contratacao,endereco,email, id_disciplina)
 VALUES
-(100, "Tanisha Harrell","129442227800", 11988099363, "1994-1-1" ,"2020-06-30","Ap #776-4126 Dolor St.","tanishaharrell@gmail.com"),
-(200, "Dante Guerra","008651524679",1194631536,"1978-09-14","2023-12-26","192 Dis Ave","danteguerra@gmail.com"),
-(300, "Yvette Gibson","407218467402", 11963674418,"1967-1-8","2023-8-4","660-8184 Quis, Ave","yvettegibson@gmail.com"),
-(400, "Joelle Salinas","645075378740", 11991380230, "1989-10-13", "2024-5-3","495 Mattis. Road","joellesalinas1901@gmail.com"),
-(500, "Cynthia Carson","352151036886", 11987654567,"1999-1-10","2022-11-24","Ap #554-3308 Vestibulum Street","cynthiacarson8755@gmail.com");
+(100, "Tanisha Harrell","129442227800", 11988099363, "1994-1-1" ,"2020-06-30","Ap #776-4126 Dolor St.","tanishaharrell@gmail.com", 10 ),
+(200, "Dante Guerra","008651524679",1194631536,"1978-09-14","2023-12-26","192 Dis Ave","danteguerra@gmail.com", 11 ),
+(300, "Yvette Gibson","407218467402", 11963674418,"1967-1-8","2023-8-4","660-8184 Quis, Ave","yvettegibson@gmail.com",12 ),
+(400, "Joelle Salinas","645075378740", 11991380230, "1989-10-13", "2024-5-3","495 Mattis. Road","joellesalinas1901@gmail.com", 13 ),
+(500, "Cynthia Carson","352151036886", 11987654567,"1999-1-10","2022-11-24","Ap #554-3308 Vestibulum Street","cynthiacarson8755@gmail.com", 14);
 
 insert into instituicao (id, nome, filial, cnpj, id_empresas, id_cursos)
 values
@@ -154,12 +163,12 @@ VALUES
 (654, "Quon Hardy","653652872821", 11291694731,"2007-10-17","Ap #523-6817 A Rd.","quonhardy@gmail.com"),
 (789, "Molly Good","679688721389", 11991380230,"2006-1-31","9635 Quis St.","mollygood9938@gmail.com");
 
-insert into turmas (id, ano_escolar, id_disciplina, id_professor, id_curso)
+insert into turmas (id, ano_escolar, id_disciplina, id_professor)
 values
-(90, 2023, 10, 100, 111),
-(91, 2024, 12, 500, 222),
-(92, 2023, 14, 300, 333),
-(93, 2024, 11, 400, 111);
+(90, 2023, 10, 100),
+(91, 2024, 12, 500),
+(92, 2023, 14, 300),
+(93, 2024, 11, 400);
 
 INSERT INTO matriculas (id, id_aluno, id_curso, data_matricula) 
 VALUES 
@@ -185,13 +194,13 @@ VALUES
 (666, 'Seminário de Literatura', '2023-06-20', "Apresentações dos TCC's do Senai SP"),
 (555, 'Dia da Ciência', '2023-07-05', 'Apresentações de projetos de pesquisa');
 
-INSERT INTO frequencia (id, id_aluno, id_turma, data_aula, presenca) 
+INSERT INTO frequencia (id, id_aluno, data_aula, presenca) 
 VALUES 
-(1212, 123, 90, '2023-01-03', 'Presente'),
-(1313, 321, 91, '2023-02-08', 'Faltou'),
-(1414, 456, 92, '2023-03-13', 'Presente'),
-(1515, 654, 93, '2023-04-19', 'Presente'),
-(1616, 789, 91, '2023-05-24', 'Faltou');
+(1212, 123, '2023-01-03', 'Presente'),
+(1313, 321, '2023-02-08', 'Faltou'),
+(1414, 456, '2023-03-13', 'Presente'),
+(1515, 654, '2023-04-19', 'Presente'),
+(1616, 789, '2023-05-24', 'Faltou');
 
 INSERT INTO atividades_extras (id, nome, tipo_atividade, id_turma) 
 VALUES 
