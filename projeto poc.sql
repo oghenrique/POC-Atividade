@@ -90,9 +90,7 @@ create table eventos_academicos (
     nome varchar(80) not null,
     data_evento date not null,
     descricao varchar(200),
-    id_instituicao int,
-    
-    foreign key (id_instituicao) references instituicao (id)
+    id_instituicao int
 );
 
 create table frequencia (
@@ -202,5 +200,4 @@ VALUES
 (7777, 'Clube de Música', 'Cultural', 91),
 (6666, 'Clube de Esportes', 'Esportiva', 92),
 (5555, 'Clube dos Games', 'Voluntariado Social', 90);
-
 
