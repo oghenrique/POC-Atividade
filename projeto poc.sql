@@ -56,7 +56,6 @@ create table instituicao (
 create table turmas (
     id int primary key not null,
     ano_escolar int not null,
-    id_disciplina int,
     id_professor int,
     id_curso int,
     foreign key (id_professor) references professores(id),
@@ -105,7 +104,6 @@ create table eventos_academicos (
 create table frequencia (
     id int primary key not null,
     id_aluno int,
-    id_turma int,
     data_aula date not null,
     presenca varchar(15),
     foreign key (id_aluno) references alunos(id)
