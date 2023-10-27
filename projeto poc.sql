@@ -160,12 +160,12 @@ VALUES
 (654, "Quon Hardy","653652872821", 11291694731,"2007-10-17","Ap #523-6817 A Rd.","quonhardy@gmail.com"),
 (789, "Molly Good","679688721389", 11991380230,"2006-1-31","9635 Quis St.","mollygood9938@gmail.com");
 
-insert into turmas (id, ano_escolar, id_disciplina, id_professor)
+insert into turmas (id, ano_escolar, id_curso, id_professor)
 values
-(90, 2023, 10, 100),
-(91, 2024, 12, 500),
-(92, 2023, 14, 300),
-(93, 2024, 11, 400);
+(90, 2023, 111, 100),
+(91, 2024, 222, 500),
+(92, 2023, 333, 300),
+(93, 2024, 111, 400);
 
 INSERT INTO matriculas (id, id_aluno, id_curso, data_matricula) 
 VALUES 
@@ -234,6 +234,3 @@ select frequencia.*, alunos.nome from frequencia inner join alunos on frequencia
 select matriculas.id, alunos.nome, cursos.nome, matriculas.data_matricula from matriculas
 inner join alunos on matriculas.id_aluno = alunos.id
 inner join cursos on matriculas.id_curso = cursos.id;
-
-
-
