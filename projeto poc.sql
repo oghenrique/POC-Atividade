@@ -209,7 +209,13 @@ VALUES
 (6666, 'Clube de Esportes', 'Esportiva', 92),
 (5555, 'Clube dos Games', 'Voluntariado Social', 90);
 
--- Relaório de desempenho
+-- Relatório de desempenho
+
+select alunos.nome as aluno, disciplinas.nome as disciplina, notas.nota as nota
+from alunos inner join matriculas on alunos.id = matriculas.id_aluno
+inner join cursos on matriculas.id_curso = cursos.id inner join disciplinas 
+on cursos.id = disciplinas.id_curso left join notas on alunos.id = notas.id_aluno 
+and disciplinas.id = notas.id_disciplina;
 
 -- Histórico Escolar
 
