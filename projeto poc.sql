@@ -99,8 +99,7 @@ create table eventos_academicos (
     id int primary key not null,
     nome varchar(80) not null,
     data_evento date not null,
-    descricao varchar(200),
-    id_instituicao int
+    descricao varchar(200)
 );
 
 create table frequencia (
