@@ -209,3 +209,23 @@ VALUES
 (6666, 'Clube de Esportes', 'Esportiva', 92),
 (5555, 'Clube dos Games', 'Voluntariado Social', 90);
 
+-- Relaório de desempenho
+
+-- Histórico Escolar
+
+-- Eventos acadêmicos
+
+select * from eventos_academicos;
+
+-- Frequência dos alunos
+
+
+
+-- Gestão de matriculas e inscrições
+
+select matriculas.id, alunos.nome, cursos.nome, matriculas.data_matricula from matriculas
+inner join alunos on matriculas.id_aluno = alunos.id
+inner join cursos on matriculas.id_curso = cursos.id;
+
+
+
